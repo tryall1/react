@@ -17,14 +17,14 @@ export function CryptoContextProvider({children}) {
         return assets.map(asset => {
             const coin = result.find((c) => c.id === asset.id)
                 return {
-                grow: asset.price < coin.price,
-                growPercent: percentDifferents(asset.price, coin.price),
-                totalAmount: asset.amount*coin.price,
-                totalProfit: asset.amount*coin.price - asset.amount*asset.price,
-                ...asset,
+                    grow: asset.price < coin.price,
+                    growPercent: percentDifferents(asset.price, coin.price),
+                    totalAmount: asset.amount*coin.price,
+                    totalProfit: asset.amount*coin.price - asset.amount*asset.price,
+                    name: coin.name,
+                    ...asset,
                 }
         })
-        
     }
 
     useEffect(() => {
