@@ -25,12 +25,12 @@ export default function CoinInfoModal({coin}) {
 
             <Typography.Paragraph>
                 <Typography.Text>Price BTC: </Typography.Text>
-                {coin.priceBtc}
+                {coin.priceBtc.toFixed(2)}
             </Typography.Paragraph>
 
             <Typography.Paragraph>
                 <Typography.Text>Market Cap: </Typography.Text>
-                {coin.marketCap}$ 
+                {coin.marketCap.toFixed(2)}$ 
             </Typography.Paragraph>
 
             {coin.contractAdress && <Typography.Paragraph>

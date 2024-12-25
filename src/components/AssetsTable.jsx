@@ -25,7 +25,6 @@ const columns = [
   },
 ];
 
-
 export default function AssetsTable() {
     const {assets} = useCrypto()
 

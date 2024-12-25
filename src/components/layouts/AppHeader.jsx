@@ -60,7 +60,7 @@ export default function AppHeader () {
                 </Space>
                 )}
             />
-            <Button type="primary" onClick={() => setDrawer(true)}>Primary Button</Button>
+            <Button type="primary" onClick={() => setDrawer(true)}>Add Asset</Button>
 
             <Modal open={modal} footer={null} onCancel={() => setModal(false)}>
                 <CoinInfoModal coin={coin} />
@@ -69,8 +69,6 @@ export default function AppHeader () {
             <Drawer title="Basic Drawer" width={600} onClose={() => setDrawer(false)} open={drawer} destroyOnClose>
                 <AddAssetForm onClose={() => setDrawer(false)}/>  
             </Drawer>
-
-            
         </Layout.Header>
 
     )
