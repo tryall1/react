@@ -32,14 +32,13 @@ export default function AppSlider () {
                     dataSource={[
                         {title: 'Title', value: asset.totalProfit, withTag: true},
                         {title: 'Asset amount', value: asset.amount, isPlain:true },
-                        //{title: 'Difference', value: asset.growPercent},
                     ]}
                     renderItem={(item) => (
                         <List.Item>
                             <span>{item.title}</span>
                             <span>
                                 {item.withTag && (
-                                    <Tag color={asset.grow ? 'green': 'red'}>{asset.growPercent}%</Tag>
+                                    <Tag color={asset.grow ? 'green': 'red'}>{asset.growPercent.toFixed(2)}%</Tag>
                                 )}
                                 {item.isPlain && <span>{item.value}</span>}
                                 {!item.isPlain && (
