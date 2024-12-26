@@ -13,18 +13,27 @@ export function CryptoContextProvider({children}) {
     const [crypto, setCrypto] = useState([])
     const [assets, setAssets] = useState([])
 
+    function roundToTwo(num) {
+        return Math.round(num * 100) / 100; 
+    }
+    
     function mapAssets(assets, result) {
         return assets.map(asset => {
-            const coin = result.find((c) => c.id === asset.id)
-                return {
-                    grow: asset.price < coin.price,
-                    growPercent: percentDifferents(asset.price, coin.price),
-                    totalAmount: asset.amount*coin.price,
-                    totalProfit: asset.amount*coin.price - asset.amount*asset.price,
-                    name: coin.name,
-                    ...asset,
-                }
-        })
+            const coin = result.find((c) => c.id === asset.id);
+    
+            if (!coin) {
+                return { ...asset, error: 'Coin not found' };
+            }
+    
+            return {
+                grow: asset.price < coin.price,
+                growPercent: roundToTwo(percentDifferents(asset.price, coin.price)),
+                totalAmount: roundToTwo(asset.amount * coin.price),
+                totalProfit: roundToTwo(asset.amount * coin.price - asset.amount * asset.price),
+                name: coin.name,
+                ...asset,
+            };
+        });
     }
 
     useEffect(() => {
