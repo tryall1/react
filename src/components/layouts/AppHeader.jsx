@@ -1,10 +1,10 @@
 import { Layout, Select, Space, Button, Modal, Flex, Drawer } from 'antd';
 import { useCrypto } from '../../context/crypto-context';
 import { useEffect, useState } from 'react';
-import CoinInfoModal from '../CoinInfoModal'
-import AddAssetForm from '../addAssetForm';
+import CoinInfoModal from '../CoinInfoModal';
+import AddAssetForm from '../AddAssetForm';
 
-
+//Header style
 const headerStyle = {
     textAlign: 'center',
     height: 60,
@@ -12,7 +12,7 @@ const headerStyle = {
     display:'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-};
+}; 
 
 export default function AppHeader () {
     const [select, setSelect] = useState(false)
